@@ -1,18 +1,22 @@
 function minSubArrayLen(arr, num) {
-    // 갯수를 늘려가며 인접한 것 합 구해야함.
-    // 합이 크면 return
-
     let total = 0;
-    let count = 0;
+    let start = 0;
+    let end = 0;
+    let minLen = Infinity;
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > num) return (count = 1);
-        count++;
-        total = total + arr[i + count] - arr[i - 1];
-        if (total > num) return count;
+    while (start < arr.length) {
+        if (total < num && end < arr.length) {
+            total += arr[end];
+            end++;
+        } else if (total >= num) {
+            minLen = Math.min(minLen, end - start);
+            total -= arr[start];
+            start++;
+        } else {
+            break;
+        }
     }
-
-    while (total > num) {
-        count++;
-    }
+    return minLen === Infinity ? 0 : minLen;
 }
+
+console.log(minSubArrayLen([3, 1, 7, 11, 2, 9, 8, 21, 62, 33, 19], 52));
