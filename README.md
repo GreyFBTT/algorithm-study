@@ -3,4 +3,4 @@
 -   https://www.udemy.com/course/best-javascript-data-structures/
 -   시작일 2022.08.18
 -   노션페이지
-    https://pitch-akubra-2c2.notion.site/14fd5889eb544d34a5a99be93dd11df7
+    https://jaeyeong815.notion.site/9b55e460097a4f52bd8fb8571601eae5
