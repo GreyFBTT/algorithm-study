@@ -5,7 +5,7 @@
 class Node {
     constructor(val) {
         this.val = val;
-        this.next = null;
+        // this.next = null;
     }
 }
 
@@ -144,18 +144,63 @@ class SinglyLinkedList {
 
         return false;
     }
+
+    insert(idx, val) {
+        // this.length를 포함하지 않는 이유는 this.length 길이일때는 push와 같이 동작할 수 있기 떄문.
+        // push, unshift를 이용
+        if (idx < 0 || idx > this.length) return false;
+        // !! not, not ~ / unshift가 작동했으면 값이 있으니 true 없으면 notnotnot 이므로 false
+        if (idx === 0) return !!list.unshift(val);
+        // push를 굳이 아래처럼 해야할 필요가 있을까??
+        // why? tail을 바꿔줘야 하는데 이미 push에서 구현해놨기 때문
+        if (idx === this.length) return !!list.push(val);
+        const newNode = new Node(val);
+        let pre = this.get(idx - 1);
+        let next = pre.next;
+
+        pre.next = newNode;
+        newNode.next = next;
+        this.length++;
+
+        return this;
+    }
+
+    remove(idx) {
+        if (idx < 0 || idx >= this.length) return false;
+        if (idx === 0) return !!this.shift(idx);
+        if (idx === this.length - 1) return !!this.pop(idx);
+
+        let pre = list.get(idx - 1);
+        pre.next = pre.next.next;
+        this.length--;
+
+        return pre.next;
+    }
+
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        let prev = null;
+        let next;
+
+        while (node) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+
+        return this;
+    }
 }
 
 const list = new SinglyLinkedList();
-list.unshift(10);
-list.unshift(40);
-list.push(123);
-list.push(55);
-// console.log(list.push(100));
-console.log(list);
-// console.log(list.pop());
-// console.log(list.pop());
-console.log(list.set(3, 100));
-console.log(list);
-
+list.push(10);
+// list.push(100);
+// list.push(40);
+// list.push(123);
+// list.push(55);
 // console.log(list);
+console.log(list.reverse());
