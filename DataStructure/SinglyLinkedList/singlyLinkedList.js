@@ -198,9 +198,9 @@ class SinglyLinkedList {
 
 const list = new SinglyLinkedList();
 list.push(10);
-// list.push(100);
-// list.push(40);
-// list.push(123);
-// list.push(55);
-// console.log(list);
+list.push(100);
+list.push(40);
+list.push(123);
+list.push(55);
+console.log(list);
 console.log(list.reverse());
