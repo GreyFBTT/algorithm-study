@@ -54,4 +54,4 @@ g.addEdge("Los Angeles", "Hong Kong");
 g.addEdge("Los Angeles", "Aspen");
 g.removeVertex("Hong Kong");
 
-console.log(g);
+// console.log(g);
