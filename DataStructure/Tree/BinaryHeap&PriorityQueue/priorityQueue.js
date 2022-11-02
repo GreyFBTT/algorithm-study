@@ -82,12 +82,14 @@ class PriorityQueue {
     }
 }
 
-const queue = new PriorityQueue();
-queue.enqueue(1, 2);
-queue.enqueue(1, 1);
-queue.enqueue(1, 3);
-queue.enqueue(1, 5);
-queue.enqueue(1, 6);
-console.log(queue);
-queue.dequeue();
-console.log(queue);
+// const queue = new PriorityQueue();
+// queue.enqueue(1, 2);
+// queue.enqueue(1, 1);
+// queue.enqueue(1, 3);
+// queue.enqueue(1, 5);
+// queue.enqueue(1, 6);
+// console.log(queue);
+// queue.dequeue();
+// console.log(queue);
+
+console.log([1, 2, 3]);
